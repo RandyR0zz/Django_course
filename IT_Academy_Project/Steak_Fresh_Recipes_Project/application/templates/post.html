@@ -1,0 +1,18 @@
+{% extends 'base.html '%}
+
+{% block content %}
+    <div id="center_content">
+        {% if post %}
+            {% if post.moderation %}
+                <h1>{{ post.title }}</h1><hr><br>
+                <p id="ingr">Ingredients: {{ post.ingridients }}</p><br>
+                <p>{{ post.content }}</p><br><br>
+                <span>Recipe added by {{ post.author.name }} in {{ post.issued }}</span>
+            {% else %}
+                <p>Sorry, your post is being moderated. Please wait a while for our team to check it out. In any case, you can add one more recipe to make us work harder. Use the menu on the right side.</p>
+            {% endif %}
+        {% else %}
+            <p>Sorry, we can`t find the recipe what you are looking for. Try to create your personal recipe. Use the menu on the right side.</p>
+        {% endif %}
+    </div>
+{% endblock %}

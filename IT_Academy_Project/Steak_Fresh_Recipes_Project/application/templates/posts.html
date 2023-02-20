@@ -1,0 +1,15 @@
+{% extends 'base.html '%}
+
+{% block content %}
+    <div id="center_content">
+        {% for post in posts %}
+            {% if post.moderation %}
+                <a href="{% url 'post' post.id %}">
+                    <h1>{{ post.title }}</h1><hr><br>
+                </a>
+                <p id="ingr">Ingredients: {{ post.ingridients }}</p><br>
+                <p>{{ post.content }}</p><br><br>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
